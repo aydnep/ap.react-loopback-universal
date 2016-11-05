@@ -22,3 +22,4 @@ bin
 server/*.local.json
 ap.react
 ap.react-journal
+.vscode
