@@ -1,0 +1,224 @@
+@media (max-width: 414px) {
+  .account {
+    min-height: 100vh;
+    padding: 10vw 0 3.125vw;
+    background: #f9f9f9;
+    color: #1c1d26;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .account header {
+      display: flex;
+      position: relative;
+      width: 100%; }
+      .account header svg {
+        position: absolute;
+        margin: 0 0 0 5.625vw; }
+        .account header svg:hover .arrow {
+          fill: #30a3fe; }
+      .account header figure {
+        width: 46.875vw;
+        margin: 0 auto; }
+        .account header figure div {
+          width: 31.25vw;
+          height: 35.625vw;
+          margin: 0 auto 5.625vw;
+          border: 2px solid #30a3fe;
+          border-radius: 50%;
+          overflow: hidden; }
+          .account header figure div img {
+            display: block;
+            margin: 0 auto; }
+        .account header figure figcaption {
+          font-family: Georgia, 'Times New Roman', Times, serif; }
+          .account header figure figcaption h3 {
+            font-size: 4.6875vw;
+            text-align: center; }
+          .account header figure figcaption span {
+            display: block;
+            color: #757575;
+            font-size: 4.0625vw;
+            text-align: center; }
+    .account main {
+      display: flex;
+      flex-direction: column;
+      margin: 8.125vw 0 0; }
+      .account main div {
+        margin: 0 5.625vw;
+        padding: 6.25vw 5.9375vw 4.6875vw 6.25vw;
+        border-radius: 3px;
+        background-color: #fff;
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
+        .account main div h2 {
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          font-size: 4.6875vw; }
+        .account main div p {
+          margin: 2.8125vw 0 0;
+          color: #1c1d26;
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-size: 4.0625vw; }
+      .account main a {
+        margin: 6.25vw 0 1.5625vw;
+        color: #30a3fe;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 3.75vw;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none; }
+      .account main button {
+        line-height: 44px;
+        margin: 1.5625vw 9.375vw 7.1875vw;
+        border: 0;
+        border-radius: 2.5vw;
+        background: #30a3fe;
+        color: #fff;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 4.375vw; } }
+
+@media (min-width: 415px) and (max-width: 667px) {
+  .account {
+    min-height: 100vh;
+    padding: 5.63392vw 0 1.7606vw;
+    background: #f9f9f9;
+    color: #1c1d26;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .account header {
+      display: flex;
+      position: relative;
+      width: 100%; }
+      .account header svg {
+        position: absolute;
+        margin: 0 0 0 3.16908vw; }
+        .account header svg:hover .arrow {
+          fill: #30a3fe; }
+      .account header figure {
+        width: 26.409vw;
+        margin: 0 auto; }
+        .account header figure div {
+          width: 17.606vw;
+          height: 20.07084vw;
+          margin: 0 auto 3.16908vw;
+          border: 2px solid #30a3fe;
+          border-radius: 50%;
+          overflow: hidden; }
+          .account header figure div img {
+            display: block;
+            margin: 0 auto; }
+        .account header figure figcaption {
+          font-family: Georgia, 'Times New Roman', Times, serif; }
+          .account header figure figcaption h3 {
+            font-size: 2.6409vw;
+            text-align: center; }
+          .account header figure figcaption span {
+            display: block;
+            color: #757575;
+            font-size: 2.28878vw;
+            text-align: center; }
+    .account main {
+      display: flex;
+      flex-direction: column;
+      margin: 4.57756vw 0 0; }
+      .account main div {
+        margin: 0 3.16908vw;
+        padding: 3.5212vw 3.34514vw 2.6409vw 3.5212vw;
+        border-radius: 3px;
+        background-color: #fff;
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
+        .account main div h2 {
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          font-size: 2.6409vw; }
+        .account main div p {
+          margin: 1.58454vw 0 0;
+          color: #1c1d26;
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-size: 2.28878vw; }
+      .account main a {
+        margin: 3.5212vw 0 0.8803vw;
+        color: #30a3fe;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 2.11272vw;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none; }
+      .account main button {
+        line-height: 44px;
+        margin: 0.8803vw 5.2818vw 4.04938vw;
+        border: 0;
+        border-radius: 1.40848vw;
+        background: #30a3fe;
+        color: #fff;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 2.46484vw; } }
+
+@media (min-width: 668px) and (max-width: 768px) {
+  .account {
+    min-height: 100vh;
+    padding: 4.16678vw 0 1.30212vw;
+    background: #f9f9f9;
+    color: #1c1d26;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .account header {
+      display: flex;
+      position: relative;
+      width: 100%; }
+      .account header svg {
+        position: absolute;
+        margin: 0 0 0 2.34382vw; }
+        .account header svg:hover .arrow {
+          fill: #30a3fe; }
+      .account header figure {
+        width: 19.5318vw;
+        margin: 0 auto; }
+        .account header figure div {
+          width: 13.0212vw;
+          height: 14.84417vw;
+          margin: 0 auto 2.34382vw;
+          border: 2px solid #30a3fe;
+          border-radius: 50%;
+          overflow: hidden; }
+          .account header figure div img {
+            display: block;
+            margin: 0 auto; }
+        .account header figure figcaption {
+          font-family: Georgia, 'Times New Roman', Times, serif; }
+          .account header figure figcaption h3 {
+            font-size: 1.95318vw;
+            text-align: center; }
+          .account header figure figcaption span {
+            display: block;
+            color: #757575;
+            font-size: 1.69276vw;
+            text-align: center; }
+    .account main {
+      display: flex;
+      flex-direction: column;
+      margin: 3.38551vw 0 0; }
+      .account main div {
+        margin: 0 2.34382vw;
+        padding: 2.60424vw 2.47403vw 1.95318vw 2.60424vw;
+        border-radius: 3px;
+        background-color: #fff;
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5); }
+        .account main div h2 {
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          font-size: 1.95318vw; }
+        .account main div p {
+          margin: 1.17191vw 0 0;
+          color: #1c1d26;
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-size: 1.69276vw; }
+      .account main a {
+        margin: 2.60424vw 0 0.65106vw;
+        color: #30a3fe;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 1.56254vw;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none; }
+      .account main button {
+        line-height: 44px;
+        margin: 0.65106vw 3.90636vw 2.99488vw;
+        border: 0;
+        border-radius: 1.0417vw;
+        background: #30a3fe;
+        color: #fff;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 1.82297vw; } }

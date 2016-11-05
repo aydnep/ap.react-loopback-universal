@@ -1,0 +1,21 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "sqlite3": {
+    "name": "sqlite3",
+    "connector": "sqlite3",
+    "file": "ap.react",
+    "debug": true
+  },
+  "mysql": {
+    "name": "mysql",
+    "connector": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "database": "ap.react",
+    "user": "root",
+    "password": ""
+  }
+}

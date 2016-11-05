@@ -1,0 +1,22 @@
+.ap-react-app.main {
+  text-align: center; }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .ap-react-app.main {
+    background: #000; } }
+  .ap-react-app.main .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px; }
+  .ap-react-app.main .App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white; }
+  .ap-react-app.main .App-intro {
+    font-size: large; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
