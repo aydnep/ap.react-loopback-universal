@@ -1,6 +1,7 @@
 // server loopback build
 const loopback = require('loopback');
 const boot = require('loopback-boot');
+const PassportConfigurator = require('loopback-component-passport').PassportConfigurator;
 
 const app = module.exports = loopback();
 
@@ -22,6 +23,7 @@ if (mode === env.DEVELOPMENT) {
     app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 }
 app.use(webpackHotMiddleware(compiler));
+
 
 app.start = () => {
   // start the web server
@@ -46,3 +48,13 @@ boot(app, __dirname, (err) => {
     app.start();
   }
 });
+
+// -- Add your pre-processing middleware here --
+
+// body-parser
+const bodyParser = require('body-parser');
+
+app.middleware('parse', bodyParser.json());
+app.middleware('parse', bodyParser.urlencoded({ extended: true }));
+
+// const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;

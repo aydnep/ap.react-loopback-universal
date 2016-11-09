@@ -1,7 +1,8 @@
 {
   "db": {
     "name": "db",
-    "connector": "memory"
+    "connector": "memory",
+    "file": "ap.react.json"
   },
   "sqlite3": {
     "name": "sqlite3",
@@ -10,12 +11,28 @@
     "debug": true
   },
   "mysql": {
-    "name": "mysql",
-    "connector": "mysql",
     "host": "localhost",
     "port": 3306,
     "database": "ap.react",
-    "user": "root",
-    "password": ""
+    "password": "",
+    "name": "mysql",
+    "connector": "mysql",
+    "user": "root"
+  },
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "auth": {
+          "user": "test@gmail.com",
+          "pass": "test"
+        }
+      }
+    ]
   }
 }

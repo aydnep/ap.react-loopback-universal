@@ -1,10 +1,11 @@
 {
   "_meta": {
     "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
       "../common/models",
-      "./models"
+      "./models",
+      "loopback-component-passport/lib/models",
+      "loopback/common/models",
+      "loopback/server/models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -13,27 +14,34 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "mysql"
+  "user": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   },
-  "AccessToken": {
+  "accessToken": {
+    "dataSource": "db",
+    "public": true
+  },
+  "userIdentity": {
+    "dataSource": "db",
+    "public": true
+  },
+  "userCredential": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ACL": {
     "dataSource": "db",
     "public": false
   },
-  "ACL": {
-    "dataSource": "mysql",
-    "public": false
-  },
   "RoleMapping": {
-    "dataSource": "mysql",
+    "dataSource": "db",
     "public": false
   },
   "Role": {
-    "dataSource": "mysql",
+    "dataSource": "db",
     "public": false
-  },
-  "CoffeeShop": {
-    "dataSource": "mysql",
-    "public": true
   }
 }

@@ -31,8 +31,11 @@ my-app/
   client/                             // Public folder to store static files (Front-End)
   common/                             // Loopback common folder
     models/                           // Loopback data-models folder
-      model-name.js                   // Loopback moled helpers (before/after create/change)
-      model-name.json                 // Loopback model structure description
+      access-token.json               // Extended accessToken model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
+      user.js                         // Model before/afret helpers (Add & Remove cookies after login/logut) 
+      user.json                       // Extended User model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
+      user-credentials.json           // Extended userCredential model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
+      user-identity.json              // Extended userIdentity model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
   config/                             // Project config and build-helpers
     jest/                             // Facebook JavaScript test
     env.js                            // Webpack client environment
@@ -42,8 +45,9 @@ my-app/
     webpack.config.production.js      // Webpack production config
   server/                             // Loopback backend/api folder
     boot/                             // Loopback boot scripts
-      authentication.js               // Enable [authentication](http://loopback.io/doc/en/lb2/Authentication-authorization-and-permissions.html)
-      create-sample-models.js         // Database migration example (create sample model)
+      authentication.js               // Enable [authentication](http://loopback.io/doc/en/lb2/Authentication-authorization-and-permissions.html) & [loopback.token middleware](https://strongloop.com/strongblog/part-1-ionic-loopback-node-js-mobile/)
+      create-lb-tables.js             // Database update script & create test user 
+      passport-facebook.js            // Apply passport-facebook provider middleware
       root.js                         // Root routing (app entry point)
       routes.js                       // Backend/api routes
     component-config.json             // Loopback components config (base)
@@ -55,6 +59,7 @@ my-app/
     middleware.development.json       // Loopback middlewares development config (helmet, client folder etc.)
     middleware.json                   // Loopback middlewares base config (helmet, client folder etc.)
     model-config.json                 // Applying models to connectors/providers
+    passport.json                     // Passport providers config file
     server.js                         // Application entry-point
   src/                                // Application source folder
     components/                       // React components
