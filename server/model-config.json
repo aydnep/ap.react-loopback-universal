@@ -15,33 +15,33 @@
     ]
   },
   "user": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": true,
     "$promise": {},
     "$resolved": true
   },
   "accessToken": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": true
   },
   "userIdentity": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": true
   },
   "userCredential": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": true
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mysql",
     "public": false
   }
 }

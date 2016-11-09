@@ -1,6 +1,6 @@
 module.exports = (app) => {
   // console.log(app.models()[0]);
-  const ds = app.dataSources.db;
+  const ds = app.dataSources.mysql;
   const lbTables = ['user', 'accessToken', 'userCredential', 'userIdentity', 'ACL', 'RoleMapping', 'Role'];
   // const lbTables = ['ACL', 'RoleMapping', 'Role'];
   // const lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
