@@ -1,7 +1,13 @@
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+
 module.exports = (app) => {
   // Install a "/ping" route that returns "pong"
   app.get('/ping', (req, res) => {
     res.send('pong');
+  });
+
+  app.get('/auth/account', ensureLoggedIn('/'), (req, res) => {
+    res.send(req.user);
   });
 
   app.get('/login', (req, res) => {
@@ -29,7 +35,7 @@ module.exports = (app) => {
     if (req.accessToken) {
       app.models.user.logout(req.accessToken.id, (err, result) => {
         if (err) {
-          throw err;
+          console.log(err);
         }
         res.clearCookie('access_token');
         res.clearCookie('userId');
@@ -39,7 +45,11 @@ module.exports = (app) => {
     res.redirect('/');
   });
 
-  app.get('/test', (req, res) => {
+  app.get('/usr', (req, res) => {
+    res.send(res.user);
+  });
+
+  app.get('/token', (req, res) => {
     // console.log(req.accessToken);
     res.send(req.accessToken);
   });

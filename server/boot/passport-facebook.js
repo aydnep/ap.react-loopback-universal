@@ -1,6 +1,7 @@
 const PassportConfigurator = require('loopback-component-passport').PassportConfigurator;
 
  module.exports = (app) => {
+   console.log('passport-facebook');
    const passportConfigurator = new PassportConfigurator(app);
    let passportConfig = {};
    try {
@@ -9,6 +10,8 @@ const PassportConfigurator = require('loopback-component-passport').PassportConf
     passportConfig = require('../passport.json');
    }
 
+   const provider = passportConfig['facebook-login'];
+   provider.session = provider.session !== false;
    passportConfigurator.init();
    passportConfigurator.setupModels({
      userModel: app.models.user,
@@ -16,5 +19,5 @@ const PassportConfigurator = require('loopback-component-passport').PassportConf
      userCredentialModel: app.models.userCredential
    });
    passportConfigurator.configureProvider('facebook-login',
-     passportConfig['facebook-login']);
+     provider);
  };
