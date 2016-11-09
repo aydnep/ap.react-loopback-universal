@@ -14,9 +14,17 @@ See [Getting started with LoopBack](http://docs.strongloop.com/display/LB/Gettin
 
 [More LoopBack examples](https://github.com/strongloop/loopback-example)
 
+##Authentication 
+
+Motivated by:
+* [Ionic & LoopBack Frameworks – Building a REST API](https://strongloop.com/strongblog/part-1-ionic-loopback-node-js-mobile/)
+* [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
+
+## Client
+
 Client side was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Folder Structure
+# Folder Structure
 
 After creation, your project should look like this:
 

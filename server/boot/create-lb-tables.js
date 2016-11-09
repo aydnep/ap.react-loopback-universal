@@ -1,10 +1,6 @@
 module.exports = (app) => {
-  // console.log(app.models()[0]);
   const ds = app.dataSources.db;
   const lbTables = ['user', 'accessToken', 'userCredential', 'userIdentity', 'ACL', 'RoleMapping', 'Role'];
-  // const lbTables = ['ACL', 'RoleMapping', 'Role'];
-  // const lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
-  // const lbTables = ['AccessToken', 'ACL', 'RoleMapping', 'Role'];
   ds.isActual(lbTables, (err, actual) => {
     if (err) {
       throw err;
