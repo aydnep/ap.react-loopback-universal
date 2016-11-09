@@ -1,7 +1,7 @@
 // server loopback build
 const loopback = require('loopback');
 const boot = require('loopback-boot');
-const PassportConfigurator = require('loopback-component-passport').PassportConfigurator;
+// const PassportConfigurator = require('loopback-component-passport').PassportConfigurator;
 
 const app = module.exports = loopback();
 
@@ -56,5 +56,6 @@ const bodyParser = require('body-parser');
 
 app.middleware('parse', bodyParser.json());
 app.middleware('parse', bodyParser.urlencoded({ extended: true }));
+
 
 // const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;

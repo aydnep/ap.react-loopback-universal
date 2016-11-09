@@ -4,7 +4,7 @@
   "main": "server/server.js",
   "scripts": {
     "lint": "eslint .",
-    "start": "nodemon server/server.js",
+    "start": "nodemon --ignore data/ server/server.js",
     "start:prod": "NODE_ENV=production&& npm run deploy && node .",
     "win:prod": "set NODE_ENV=production&& npm run deploy && node .",
     "deploy": "NODE_ENV=production webpack -p --config config/webpack.config.production.js --progress",

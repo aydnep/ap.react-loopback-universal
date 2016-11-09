@@ -2,12 +2,12 @@
   "db": {
     "name": "db",
     "connector": "memory",
-    "file": "ap.react.json"
+    "file": "./data/ap.react.json"
   },
   "sqlite3": {
     "name": "sqlite3",
     "connector": "sqlite3",
-    "file": "ap.react",
+    "file": "./data/ap.react",
     "debug": true
   },
   "mysql": {
