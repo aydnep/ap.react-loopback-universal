@@ -10,8 +10,8 @@ const PassportConfigurator = require('loopback-component-passport').PassportConf
     passportConfig = require('../passport.json');
    }
 
-   const provider = passportConfig['facebook-login'];
-   provider.session = provider.session !== false;
+   const facebook = passportConfig['facebook-login'];
+   facebook.session = facebook.session !== false;
    passportConfigurator.init();
    passportConfigurator.setupModels({
      userModel: app.models.user,
@@ -19,5 +19,5 @@ const PassportConfigurator = require('loopback-component-passport').PassportConf
      userCredentialModel: app.models.userCredential
    });
    passportConfigurator.configureProvider('facebook-login',
-     provider);
+     facebook);
  };

@@ -42,7 +42,10 @@
       }
     }
   },
-  "parse": {},
+  "parse": {
+    "body-parser#json": {},
+    "body-parser#urlencoded": {"params": { "extended": true }}
+  },
   "routes": {
     "loopback#rest": {
       "paths": [
@@ -59,6 +62,11 @@
     "loopback#urlNotFound": {}
   },
   "final:after": {
-    "strong-error-handler": {}
+    "strong-error-handler": {
+      "params": {
+        "debug": true,
+        "log": true
+      }
+    }
   }
 }

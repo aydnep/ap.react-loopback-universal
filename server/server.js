@@ -24,7 +24,6 @@ if (mode === env.DEVELOPMENT) {
 }
 app.use(webpackHotMiddleware(compiler));
 
-
 app.start = () => {
   // start the web server
   return app.listen(() => {
@@ -50,12 +49,5 @@ boot(app, __dirname, (err) => {
 });
 
 // -- Add your pre-processing middleware here --
-
-// body-parser
-const bodyParser = require('body-parser');
-
-app.middleware('parse', bodyParser.json());
-app.middleware('parse', bodyParser.urlencoded({ extended: true }));
-
 
 // const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;

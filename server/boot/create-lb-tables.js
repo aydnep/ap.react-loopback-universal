@@ -15,12 +15,13 @@ module.exports = (app) => {
       app.models.user.findOrCreate({
         where: { username: 'test' }
       }, {
+        username: 'test',
         email: 'test@gmail.com',
         password: 'test',
-        username: 'test',
       }, (findErr, instance, created) => {
         if (findErr) {
           console.log(findErr);
+          // throw findErr;
         } else if (created) {
           console.log(created);
           console.log('Create test user');
