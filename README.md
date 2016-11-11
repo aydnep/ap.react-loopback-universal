@@ -47,23 +47,53 @@ my-app/
   README.md                           // This file
   node_modules/                       // Modules to run and work application
   package.json                        // Project configuration file
+  nodemon.json                        // Nodemon configuration file
   .eslintrc                           // ESLint rules
   .eslintignore                       // ESLint exceptions
-  build/                              // Production ready folder
-  client/                             // Public folder to store static files (Front-End)
+  app/                                // Application source folder
+    components/                       // React components
+      component/                      // React component folder
+        component.js(x)               // React component file
+        component.css                 // Compiled Styles (please do not edit)
+        component.scss                // component Styles (edit styles here) auto compiled to css
+    containers/                       // React-Redux containers with mapped state and actions
+      App.js(x)                       // root react-redux container - render children route containers
+      Container.jx(x)                 // React-Redux container (linked in routes.js(x))
+    css/                              // Application Styles like (reset.css, normalize.css, fonts.css)
+      _include-media.scss             // (http://include-media.com/) Simple, elegant and maintainable media queries in Sass
+    img/                              // Images path
+      component/                      // Component images path
+    redux/                            // Redux implementation
+      middlewares/                    // Redux middlewares and promises from https://github.com/reactGo/reactGo
+        preRenderMiddleware.js        // preRenderMiddleware for server rendering (currently not used)
+        promiseMiddleware.js          // Promise middleware for actions and http requests (REQUEST, SUCCESS, FAIL types)
+      modules/                        // Redux modules (reducers&actions)
+        module/                       // Incapsulated redux module
+          index.js                    // implementation reducer, actions and constants
+        index.js                      // Root-reducer combineReducers
+      configureStore.js               // Store configuration, apply middlewares and hot modules
+    client.jsx                        // Front-End entry point. Import store from redux, apply routing and render application
+    index.html                        // HTML template
+    routes.jsx                        // React-router child routes and route logic
+    server.jsx                        // Server-side render entry point
+    template.js                       // Template for server-side rendering (same as index.html)
+  build/                              // Public folder to store static files (Front-End)
+    static/                           // Front-End static files
+    server.js                         // Server-side render node-ready component (builded after webpack backend)
   common/                             // Loopback common folder
     models/                           // Loopback data-models folder
-      access-token.json               // Extended accessToken model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
+      access-token.json               // Extended accessToken model (https://github.com/strongloop/loopback-example-passport)
       user.js                         // Model before/afret helpers (Add & Remove cookies after login/logut) 
-      user.json                       // Extended User model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
-      user-credentials.json           // Extended userCredential model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
-      user-identity.json              // Extended userIdentity model [loopback-example-passport](https://github.com/strongloop/loopback-example-passport)
+      user.json                       // Extended User model (https://github.com/strongloop/loopback-example-passport)
+      user-credentials.json           // Extended userCredential model (https://github.com/strongloop/loopback-example-passport)
+      user-identity.json              // Extended userIdentity model (https://github.com/strongloop/loopback-example-passport)
   config/                             // Project config and build-helpers
     jest/                             // Facebook JavaScript test
     env.js                            // Webpack client environment
     path.js                           // Webpack client folders config
     polyfills.js                      // whatwg-fetch - promise polyfills
-    webpack.config.development.js     // Webpack development config
+    webpack.be.config.development.js  // Webpack development config Back-End
+    webpack.fe.config.development.js  // Webpack development config Front-End
     webpack.config.production.js      // Webpack production config
   server/                             // Loopback backend/api folder
     boot/                             // Loopback boot scripts
@@ -82,33 +112,8 @@ my-app/
     middleware.json                   // Loopback middlewares base config (helmet, client folder etc.)
     model-config.json                 // Applying models to connectors/providers
     passport.json                     // Passport providers config file
+    passport.json                     // Passport providers config file (local without git sync)
     server.js                         // Application entry-point
-  src/                                // Application source folder
-    components/                       // React components
-      component/                      // React component folder
-        component.js(x)               // React component file
-        component.css                 // Compiled Styles (please do not edit)
-        component.scss                // component Styles (edit styles here) auto compiled to css
-    containers/                       // React-Redux containers with mapped state and actions
-      App.js(x)                       // root react-redux container - render children route containers
-      Container.jx(x)                 // React-Redux container (linked in routes.js(x))
-    css/                              // Application Styles like (reset.css, normalize.css, fonts.css)
-      _include-media.scss             // [include-media](http://include-media.com/) Simple, elegant and maintainable media queries in Sass
-    img/                              // Images path
-      component/                      // Component images path
-    redux/                            // Redux implementation
-      middlewares/                    // Redux middlewares and promises from https://github.com/reactGo/reactGo
-        preRenderMiddleware.js        // preRenderMiddleware for server rendering (currently not used)
-        promiseMiddleware.js          // Promise middleware for actions and http requests (REQUEST, SUCCESS, FAIL types)
-      modules/                        // Redux modules (reducers&actions)
-        module/                       // Incapsulated redux module
-          index.js                    // implementation reducer, actions and constants
-        index.js                      // Root-reducer combineReducers
-      configureStore.js               // Store configuration, apply middlewares and hot modules
-    index.js                          // Front-End entry point. Import store from redux, apply routing and render application
-    index.html                        // HTML template
-    routes.js(x)                      // React-router child routes and route logic
-  server/
 ```
 For the project to build, **these files must exist with exact filenames**:
 
