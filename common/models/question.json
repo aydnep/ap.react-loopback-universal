@@ -1,0 +1,30 @@
+{
+  "name": "Question",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "socionicType": {
+      "type": "number"
+    },
+    "title": {
+      "type": "string"
+    },
+    "isRadio": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "answers": {
+      "type": "hasMany",
+      "model": "Answer",
+      "foreignKey": "questionId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

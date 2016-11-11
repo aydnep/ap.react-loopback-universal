@@ -1,4 +1,4 @@
 build
 public
 node_modules
-src/redux/middlewares/promiseMiddleware.js
+src/client/redux/middlewares/promiseMiddleware.js

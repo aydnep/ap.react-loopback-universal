@@ -14,7 +14,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 // const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
-const config = require(`../config/webpack.config.${mode}`);
+const config = require(`../config/webpack.fe.config.${mode}`);
 const compiler = webpack(config);
 // compiler.apply(new ProgressPlugin((percentage, msg) => console.log((percentage * 100) + '%', msg)));
 
@@ -47,6 +47,18 @@ boot(app, __dirname, (err) => {
     app.start();
   }
 });
+
+// app.get('*', require('../client/server.js').default);
+
+app.get('*', (req, res) => {
+  const template = require('../app/template.js');
+  const serverRender = require('../build/server.js');
+  // console.log(serverRender.default());
+  // template.default(serverRender.default(`current URL is ${req.url}`))
+  res.send(template(serverRender.default(`current URL is ${req.url}`)));
+});
+
+
 
 // -- Add your pre-processing middleware here --
 

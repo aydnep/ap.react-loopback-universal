@@ -14,10 +14,12 @@
 .idea
 .project
 .strong-pm
+.vscode
 coverage
 node_modules
 npm-debug.log
 client
+!client/README.md
 bin
 server/*.local.json
 ap.react

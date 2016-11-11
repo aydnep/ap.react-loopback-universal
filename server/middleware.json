@@ -31,7 +31,9 @@
     }
   },
   "session:before": {
-    "cookie-parser": { "params": "test secret" }
+    "cookie-parser": {
+      "params": "test secret"
+    }
   },
   "session": {
     "express-session": {
@@ -44,7 +46,11 @@
   },
   "parse": {
     "body-parser#json": {},
-    "body-parser#urlencoded": {"params": { "extended": true }}
+    "body-parser#urlencoded": {
+      "params": {
+        "extended": true
+      }
+    }
   },
   "routes": {
     "loopback#rest": {
@@ -55,7 +61,7 @@
   },
   "files": {
     "loopback#static": {
-      "params": "$!../client"
+      "params": "$!../build"
     }
   },
   "final": {

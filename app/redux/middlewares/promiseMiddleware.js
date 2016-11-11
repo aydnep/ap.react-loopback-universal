@@ -2,7 +2,7 @@
 * Redux middleware to handle promises
 * As seen in: https://github.com/caljrimmer/isomorphic-redux-app
 */
-
+/* eslint-disable */
 export const getAsyncType = (type, state) => `${type}${state}`;
 
 export default function promiseMiddleware() {
@@ -26,3 +26,5 @@ export default function promiseMiddleware() {
       });
    };
 }
+
+/* eslint-enable */

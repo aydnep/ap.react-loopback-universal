@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './containers/App';
 import Main from './containers/Main';
+import Qwerty from './containers/Qwerty';
 
 
 export default (store) => {
@@ -11,6 +12,7 @@ export default (store) => {
   return (
     <Route path="/" component={App}>
       <IndexRoute component={Main} />
+      <Route path="qwerty" component={Qwerty} />
     </Route>
     );
 };

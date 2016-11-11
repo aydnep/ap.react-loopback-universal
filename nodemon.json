@@ -1,0 +1,11 @@
+{
+  "verbose": false,
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "build/",
+    "data/"
+  ],
+  "exec": "npm run build:dev && node .",
+  "ext": "js json jsx"
+}

@@ -27,12 +27,14 @@ const nodePaths = (process.env.NODE_PATH || '')
 
 // config after eject: we're in ./config/
 module.exports = {
-  appBuild: resolveApp('client'),
-  appPublic: resolveApp('client'),
-  appHtml: resolveApp('src/index.html'),
-  appIndexJs: resolveApp('src/index.jsx'),
+  appBuild: resolveApp('build'),
+  appPublic: resolveApp('build'),
+  appHtml: resolveApp('app/index.html'),
+  appTemplate: resolveApp('app/template.js'),
+  appIndexJs: resolveApp('app/client.jsx'),
+  appServerJs: resolveApp('app/server.jsx'),
   appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp('src'),
+  appSrc: resolveApp('app'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),

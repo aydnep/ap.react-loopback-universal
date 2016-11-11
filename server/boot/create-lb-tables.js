@@ -1,5 +1,5 @@
 module.exports = (app) => {
-  const ds = app.dataSources.db;
+  const ds = app.dataSources.mysql;
   const lbTables = ['user', 'accessToken', 'userCredential', 'userIdentity', 'ACL', 'RoleMapping', 'Role'];
   ds.isActual(lbTables, (err, actual) => {
     if (err) {

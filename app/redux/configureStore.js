@@ -18,10 +18,15 @@ export default function configureStore(initialState, history) {
   if (process.env.NODE_ENV === 'development') {
     middleware.push(createLogger());
   }
-  const store = createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middleware),
-    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
-  ));
+  const store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware), f => f));
+  // try {
+  //   store = createStore(rootReducer, initialState, compose(
+  //     applyMiddleware(...middleware),
+  //     typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+  //   ));
+  // } catch (err) {
+  //   store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware), f => f));
+  // }
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

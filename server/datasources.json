@@ -1,19 +1,12 @@
 {
   "db": {
     "name": "db",
-    "connector": "memory",
-    "file": "./data/ap.react.json"
-  },
-  "sqlite3": {
-    "name": "sqlite3",
-    "connector": "sqlite3",
-    "file": "./data/ap.react",
-    "debug": true
+    "connector": "memory"
   },
   "mysql": {
     "host": "localhost",
     "port": 3306,
-    "database": "ap.react",
+    "database": "bemy",
     "password": "",
     "name": "mysql",
     "connector": "mysql",
