@@ -1,6 +1,7 @@
 // server loopback build
 const loopback = require('loopback');
 const boot = require('loopback-boot');
+// const flash = require('express-flash');
 // const PassportConfigurator = require('loopback-component-passport').PassportConfigurator;
 
 const app = module.exports = loopback();
@@ -23,6 +24,8 @@ if (mode === env.DEVELOPMENT) {
     app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 }
 app.use(webpackHotMiddleware(compiler));
+
+// app.use(flash());
 
 app.start = () => {
   // start the web server

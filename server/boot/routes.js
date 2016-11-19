@@ -31,6 +31,10 @@ module.exports = (app) => {
     // res.send(req.params.id);
   });
 
+  app.get('/qwerty', (req, res) => {
+    res.send(req.user);
+  });
+
   app.get('/auth/account', ensureLoggedIn('/'), (req, res) => {
     res.send(req.user);
   });

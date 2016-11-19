@@ -43,23 +43,5 @@
   "Role": {
     "dataSource": "mysql",
     "public": false
-  },
-  "Question": {
-    "dataSource": "mysql",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "Answer": {
-    "dataSource": "mysql",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
-  "userAnswer": {
-    "dataSource": "mysql",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
   }
 }

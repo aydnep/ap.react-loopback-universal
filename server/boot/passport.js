@@ -6,11 +6,14 @@ module.exports = (app) => {
   try {
     passportConfig = require('../passport.local.json');
   } catch (ex) {
+    console.log(ex);
     passportConfig = require('../passport.json');
   }
 
   const facebook = passportConfig['facebook-login'];
+  const local = passportConfig.local;
   facebook.session = facebook.session !== false;
+  local.session = local.session !== false;
   passportConfigurator.init();
   passportConfigurator.setupModels({
     userModel: app.models.user,
@@ -19,4 +22,6 @@ module.exports = (app) => {
   });
   passportConfigurator.configureProvider('facebook-login',
     facebook);
+  passportConfigurator.configureProvider('local',
+    local);
 };

@@ -12,6 +12,11 @@ const Main = () => {
       <p className="App-intro">
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
+      <form action="/auth/local" method="post">
+        <input type="text" name="username" />
+        <input type="password" name="password" />
+        <input type="submit" />
+      </form>
     </div>
   );
 };

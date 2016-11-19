@@ -19987,6 +19987,13 @@ module.exports =
 	        'src/App.js'
 	      ),
 	      ' and save to reload.'
+	    ),
+	    _react2.default.createElement(
+	      'form',
+	      { action: '/auth/local', method: 'post' },
+	      _react2.default.createElement('input', { type: 'text', name: 'username' }),
+	      _react2.default.createElement('input', { type: 'password', name: 'password' }),
+	      _react2.default.createElement('input', { type: 'submit' })
 	    )
 	  );
 	};
