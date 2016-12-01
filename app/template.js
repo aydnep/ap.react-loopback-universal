@@ -1,4 +1,4 @@
-module.exports = react => `
+export default (react, state) => `
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,6 +8,7 @@ module.exports = react => `
   </head>
   <body>
     <div id="app">${react}</div>
+    <script>window.__INITIAL_STATE__ = ${JSON.stringify(state)}</script>
     <script type="text/javascript" src="/static/js/bundle.js"></script>
   </body>
 </html>

@@ -15,7 +15,7 @@ const Qwerty = () => {
 
 function mapStateToProps(state) {
   const props = {
-    state,
+    app: state.app,
   };
   return props;
 }

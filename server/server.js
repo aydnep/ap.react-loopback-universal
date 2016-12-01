@@ -54,11 +54,20 @@ boot(app, __dirname, (err) => {
 // app.get('*', require('../client/server.js').default);
 
 app.get('*', (req, res) => {
-  const template = require('../app/template.js');
+  // const template = require('../app/template.js');
   const serverRender = require('../build/server.js');
+  console.log(serverRender.default(req.url));
+  // console.log(serverRender);
+  // console.log(serverRender.default(req.url));
+  // console.log(serverRender.default(`current URL is ${req.url}`));
+  // const ssr = serverRender.default(`current URL is ${req.url}`);
+  // console.log(ssr);
   // console.log(serverRender.default());
   // template.default(serverRender.default(`current URL is ${req.url}`))
-  res.send(template(serverRender.default(`current URL is ${req.url}`)));
+
+  res.send(serverRender.default(req.url));
+
+  // res.send(template(ssr.html, ssr.serverState));
 });
 
 

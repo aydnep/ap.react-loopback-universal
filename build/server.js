@@ -69,30 +69,54 @@ module.exports =
 
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 
-	var _template = __webpack_require__(179);
-
-	var _template2 = _interopRequireDefault(_template);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// import preRenderMiddleware from './redux/middlewares/preRenderMiddleware';
+
 
 	exports.default = function (url) {
 	  var history = (0, _reactRouter.createMemoryHistory)();
-	  var store = (0, _configureStore2.default)({}, history);
+	  var initialState = {
+	    app: {
+	      title: 'ap.react'
+	    }
+	  };
+	  var store = (0, _configureStore2.default)(initialState, history);
 	  var routes = (0, _routes2.default)(store);
+	  var cb = true;
+	  var response = void 0;
 	  (0, _reactRouter.match)({ routes: routes, location: url }, function (err, redirect, props) {
 	    if (err) {
+	      cb = false;
 	      throw err;
 	    }
 	    if (props) {
+	      // preRenderMiddleware(
+	      //   store.dispatch,
+	      //   props.components,
+	      //   props.params
+	      // )
+	      // .then(() => {
+	      // const serverState = store.getState();
 	      var react = (0, _server.renderToString)(_react2.default.createElement(
 	        _reactRedux.Provider,
 	        { store: store },
 	        _react2.default.createElement(_reactRouter.RouterContext, props)
 	      ));
-	      return (0, _template2.default)(react());
+	      // const result = template(react, store.getState());
+	      response = '<!doctype html>\n        <html lang="en">\n          <head>\n            <meta charset="utf-8">\n            <meta name="viewport" content="width=device-width, initial-scale=1">\n            <title>React App</title>\n          </head>\n          <body>\n            <div id="app">' + react + '</div>\n            <script>window.__INITIAL_STATE__ = ' + JSON.stringify(store.getState()) + '</script>\n            <script type="text/javascript" src="/static/js/bundle.js"></script>\n          </body>\n        </html>\n        ';
+	      cb = false;
+	      // console.log(response);
+	      // console.log('server.jsx');
+	      // callback(response);
+	      // return response;
+	      // });
 	    }
+	    cb = false;
 	    return 'error';
 	  });
+	  while (cb) {}
+	  return response;
 	};
 
 /***/ },
@@ -19926,7 +19950,7 @@ module.exports =
 
 	function mapStateToProps(state) {
 	  var props = {
-	    state: state
+	    app: state.app
 	  };
 	  return props;
 	}
@@ -20062,7 +20086,7 @@ module.exports =
 
 	function mapStateToProps(state) {
 	  var props = {
-	    state: state
+	    app: state.app
 	  };
 	  return props;
 	}
@@ -20101,7 +20125,7 @@ module.exports =
 
 	var _modules2 = _interopRequireDefault(_modules);
 
-	var _promiseMiddleware = __webpack_require__(178);
+	var _promiseMiddleware = __webpack_require__(179);
 
 	var _promiseMiddleware2 = _interopRequireDefault(_promiseMiddleware);
 
@@ -20182,9 +20206,16 @@ module.exports =
 
 	var _reactRouterRedux = __webpack_require__(174);
 
+	var _app = __webpack_require__(178);
+
+	var _app2 = _interopRequireDefault(_app);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	// Combine reducers with routeReducer which keeps track of
 	// router state
 	var rootReducer = (0, _redux.combineReducers)({
+	  app: _app2.default,
 	  routing: _reactRouterRedux.routerReducer
 	});
 
@@ -20192,6 +20223,28 @@ module.exports =
 
 /***/ },
 /* 178 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	exports.default = function () {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { title: 'ap.react-loopback' };
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    default:
+	      {
+	        return state;
+	      }
+	  }
+	};
+
+/***/ },
+/* 179 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20240,16 +20293,6 @@ module.exports =
 	}
 
 	/* eslint-enable */
-
-/***/ },
-/* 179 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	module.exports = function (react) {
-	  return "\n<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>React App</title>\n  </head>\n  <body>\n    <div id=\"app\">" + react + "</div>\n    <script type=\"text/javascript\" src=\"/static/js/bundle.js\"></script>\n  </body>\n</html>\n";
-	};
 
 /***/ }
 /******/ ]);

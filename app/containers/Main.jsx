@@ -6,7 +6,7 @@ import MainComponent from '../components/main/main';
 
 function mapStateToProps(state) {
   const props = {
-    state,
+    app: state.app,
   };
   return props;
 }

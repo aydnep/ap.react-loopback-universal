@@ -15,9 +15,9 @@ module.exports = {
   output: {
     path: paths.appBuild,
     filename: 'server.js',
-    // library: 'library',
+    library: 'library',
     libraryTarget: 'commonjs2',
-    // umdNamedDefine: true,
+    umdNamedDefine: true,
   },
   externals: nodeModules,
   resolve: {
