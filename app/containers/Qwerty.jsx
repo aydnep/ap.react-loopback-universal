@@ -4,10 +4,10 @@ import { Link } from 'react-router';
 // import { bindActionCreators } from 'redux';
 
 
-const Qwerty = () => {
+const Qwerty = (props) => {
   return (
     <section>
-      <h1>QWERTY</h1>
+      <h1>{props.app.title}</h1>
       <Link to="/">home</Link>
     </section>
   );

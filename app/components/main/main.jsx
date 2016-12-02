@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import logo from '../../img/main/logo.svg';
 import './main.css';
 
@@ -17,6 +18,7 @@ const Main = () => {
         <input type="password" name="password" />
         <input type="submit" />
       </form>
+      <Link to="/qwerty">qwerty</Link>
     </div>
   );
 };

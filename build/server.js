@@ -69,12 +69,13 @@ module.exports =
 
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 
+	var _preRenderMiddleware = __webpack_require__(180);
+
+	var _preRenderMiddleware2 = _interopRequireDefault(_preRenderMiddleware);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import preRenderMiddleware from './redux/middlewares/preRenderMiddleware';
-
-
-	exports.default = function (url) {
+	exports.default = function (req, res) {
 	  var history = (0, _reactRouter.createMemoryHistory)();
 	  var initialState = {
 	    app: {
@@ -83,40 +84,24 @@ module.exports =
 	  };
 	  var store = (0, _configureStore2.default)(initialState, history);
 	  var routes = (0, _routes2.default)(store);
-	  var cb = true;
-	  var response = void 0;
-	  (0, _reactRouter.match)({ routes: routes, location: url }, function (err, redirect, props) {
+	  (0, _reactRouter.match)({ routes: routes, location: req.url }, function (err, redirect, props) {
 	    if (err) {
-	      cb = false;
-	      throw err;
+	      res.status(500).send({ error: err });
 	    }
 	    if (props) {
-	      // preRenderMiddleware(
-	      //   store.dispatch,
-	      //   props.components,
-	      //   props.params
-	      // )
-	      // .then(() => {
-	      // const serverState = store.getState();
-	      var react = (0, _server.renderToString)(_react2.default.createElement(
-	        _reactRedux.Provider,
-	        { store: store },
-	        _react2.default.createElement(_reactRouter.RouterContext, props)
-	      ));
-	      // const result = template(react, store.getState());
-	      response = '<!doctype html>\n        <html lang="en">\n          <head>\n            <meta charset="utf-8">\n            <meta name="viewport" content="width=device-width, initial-scale=1">\n            <title>React App</title>\n          </head>\n          <body>\n            <div id="app">' + react + '</div>\n            <script>window.__INITIAL_STATE__ = ' + JSON.stringify(store.getState()) + '</script>\n            <script type="text/javascript" src="/static/js/bundle.js"></script>\n          </body>\n        </html>\n        ';
-	      cb = false;
-	      // console.log(response);
-	      // console.log('server.jsx');
-	      // callback(response);
-	      // return response;
-	      // });
+	      (0, _preRenderMiddleware2.default)(store.dispatch, props.components, props.params).then(function () {
+	        var react = (0, _server.renderToString)(_react2.default.createElement(
+	          _reactRedux.Provider,
+	          { store: store },
+	          _react2.default.createElement(_reactRouter.RouterContext, props)
+	        ));
+	        var response = '<!doctype html>\n          <html lang="en">\n            <head>\n              <meta charset="utf-8">\n              <meta name="viewport" content="width=device-width, initial-scale=1">\n              <title>React App</title>\n            </head>\n            <body>\n              <div id="app">' + react + '</div>\n              <script>window.__INITIAL_STATE__ = ' + JSON.stringify(store.getState()) + '</script>\n              <script type="text/javascript" src="/static/js/bundle.js"></script>\n            </body>\n          </html>';
+	        res.send(response);
+	      });
+	    } else {
+	      res.status(500).send({ error: 'Error' });
 	    }
-	    cb = false;
-	    return 'error';
 	  });
-	  while (cb) {}
-	  return response;
 	};
 
 /***/ },
@@ -19979,6 +19964,8 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(161);
+
 	var _logo = __webpack_require__(169);
 
 	var _logo2 = _interopRequireDefault(_logo);
@@ -20018,6 +20005,11 @@ module.exports =
 	      _react2.default.createElement('input', { type: 'text', name: 'username' }),
 	      _react2.default.createElement('input', { type: 'password', name: 'password' }),
 	      _react2.default.createElement('input', { type: 'submit' })
+	    ),
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: '/qwerty' },
+	      'qwerty'
 	    )
 	  );
 	};
@@ -20067,14 +20059,14 @@ module.exports =
 	// import { bindActionCreators } from 'redux';
 
 
-	var Qwerty = function Qwerty() {
+	var Qwerty = function Qwerty(props) {
 	  return _react2.default.createElement(
 	    'section',
 	    null,
 	    _react2.default.createElement(
 	      'h1',
 	      null,
-	      'QWERTY'
+	      props.app.title
 	    ),
 	    _react2.default.createElement(
 	      _reactRouter.Link,
@@ -20293,6 +20285,34 @@ module.exports =
 	}
 
 	/* eslint-enable */
+
+/***/ },
+/* 180 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = preRenderMiddleware;
+	/**
+	* This looks at static needs parameter in components
+	* and waits for the promise to be fullfilled.
+	*
+	* It is used to make sure server side rendered pages
+	* wait for APIs to resolve before returning res.end().
+	*
+	* As seen in: https://github.com/caljrimmer/isomorphic-redux-app
+	*/
+
+	function preRenderMiddleware(dispatch, components, params) {
+	  return Promise.all(components.reduce(function (previous, current) {
+	    return (current.need || []).concat(previous);
+	  }, []).map(function (need) {
+	    return dispatch(need(params));
+	  }));
+	}
 
 /***/ }
 /******/ ]);
