@@ -95,6 +95,7 @@ module.exports =
 	          { store: store },
 	          _react2.default.createElement(_reactRouter.RouterContext, props)
 	        ));
+	        console.log(req.user);
 	        var response = '<!doctype html>\n          <html lang="en">\n            <head>\n              <meta charset="utf-8">\n              <meta name="viewport" content="width=device-width, initial-scale=1">\n              <title>React App</title>\n            </head>\n            <body>\n              <div id="app">' + react + '</div>\n              <script>window.__INITIAL_STATE__ = ' + JSON.stringify(store.getState()) + '</script>\n              <script type="text/javascript" src="/static/js/bundle.js"></script>\n            </body>\n          </html>';
 	        res.send(response);
 	      });

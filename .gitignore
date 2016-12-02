@@ -21,7 +21,7 @@ npm-debug.log
 client
 !client/README.md
 bin
-build
+build/
 server/*.local.json
 ap.react
 ap.react-journal

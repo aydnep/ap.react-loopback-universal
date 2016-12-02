@@ -33,6 +33,7 @@ export default (req, res) => {
             <RouterContext {...props} />
           </Provider>
         );
+        console.log(req.user);
         const response = `<!doctype html>
           <html lang="en">
             <head>
