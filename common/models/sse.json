@@ -1,0 +1,14 @@
+{
+  "name": "sse",
+  "base": "PersistedModel",
+  "properties": {
+    "sse": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+  ],
+  "methods": {}
+}

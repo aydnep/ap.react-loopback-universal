@@ -52,7 +52,7 @@ boot(app, __dirname, (err) => {
 });
 
 
-app.get('*', (req, res) => {
+app.get(/^\/(?!api)(?!auth).*/, (req, res) => {
   const serverRender = require('../build/server.js');
   serverRender.default(req, res);
 });

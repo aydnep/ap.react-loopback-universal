@@ -65,11 +65,11 @@ module.exports =
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _configureStore = __webpack_require__(172);
+	var _configureStore = __webpack_require__(173);
 
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 
-	var _preRenderMiddleware = __webpack_require__(180);
+	var _preRenderMiddleware = __webpack_require__(181);
 
 	var _preRenderMiddleware2 = _interopRequireDefault(_preRenderMiddleware);
 
@@ -19799,6 +19799,10 @@ module.exports =
 
 	var _Qwerty2 = _interopRequireDefault(_Qwerty);
 
+	var _SSE = __webpack_require__(172);
+
+	var _SSE2 = _interopRequireDefault(_SSE);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = function (store) {
@@ -19809,7 +19813,8 @@ module.exports =
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Main2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'qwerty', component: _Qwerty2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: 'qwerty', component: _Qwerty2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'sse', component: _SSE2.default })
 	  );
 	};
 
@@ -20100,25 +20105,101 @@ module.exports =
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(162);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var SSE = function (_React$Component) {
+	  _inherits(SSE, _React$Component);
+
+	  function SSE() {
+	    _classCallCheck(this, SSE);
+
+	    return _possibleConstructorReturn(this, (SSE.__proto__ || Object.getPrototypeOf(SSE)).apply(this, arguments));
+	  }
+
+	  _createClass(SSE, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      var sseUrl = '/api/sses/change-stream?_format=event-stream';
+	      var src = new EventSource(sseUrl);
+	      src.addEventListener('data', function (msg) {
+	        // const data = JSON.parse(msg.data);
+	        // console.log(data);
+	        _this2.setState({ sse: msg.data });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'section',
+	        null,
+	        this.state && this.state.sse
+	      );
+	    }
+	  }]);
+
+	  return SSE;
+	}(_react2.default.Component);
+
+	function mapStateToProps(state) {
+	  var props = {
+	    app: state.app
+	  };
+	  return props;
+	}
+	// function mapDispatchToProps(dispatch) {
+	function mapDispatchToProps() {
+	  return {
+	    // actions: bindActionCreators(boovatechActions, dispatch),
+	  };
+	}
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SSE);
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.default = configureStore;
 
-	var _redux = __webpack_require__(173);
+	var _redux = __webpack_require__(174);
 
-	var _reactRouterRedux = __webpack_require__(174);
+	var _reactRouterRedux = __webpack_require__(175);
 
-	var _reduxThunk = __webpack_require__(175);
+	var _reduxThunk = __webpack_require__(176);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reduxLogger = __webpack_require__(176);
+	var _reduxLogger = __webpack_require__(177);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _modules = __webpack_require__(177);
+	var _modules = __webpack_require__(178);
 
 	var _modules2 = _interopRequireDefault(_modules);
 
-	var _promiseMiddleware = __webpack_require__(179);
+	var _promiseMiddleware = __webpack_require__(180);
 
 	var _promiseMiddleware2 = _interopRequireDefault(_promiseMiddleware);
 
@@ -20162,31 +20243,31 @@ module.exports =
 	}
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux");
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports) {
 
 	module.exports = require("react-router-redux");
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-thunk");
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-logger");
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20195,11 +20276,11 @@ module.exports =
 	  value: true
 	});
 
-	var _redux = __webpack_require__(173);
+	var _redux = __webpack_require__(174);
 
-	var _reactRouterRedux = __webpack_require__(174);
+	var _reactRouterRedux = __webpack_require__(175);
 
-	var _app = __webpack_require__(178);
+	var _app = __webpack_require__(179);
 
 	var _app2 = _interopRequireDefault(_app);
 
@@ -20215,7 +20296,7 @@ module.exports =
 	exports.default = rootReducer;
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20237,7 +20318,7 @@ module.exports =
 	};
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20288,7 +20369,7 @@ module.exports =
 	/* eslint-enable */
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports) {
 
 	"use strict";

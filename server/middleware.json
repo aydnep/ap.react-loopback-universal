@@ -3,7 +3,9 @@
     "loopback#favicon": {}
   },
   "initial": {
-    "compression": {},
+    "compression": {
+      "enabled": false
+    },
     "cors": {
       "params": {
         "origin": true,

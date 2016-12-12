@@ -43,5 +43,9 @@
   "Role": {
     "dataSource": "mysql",
     "public": false
+  },
+  "sse": {
+    "dataSource": "mysql",
+    "public": true
   }
 }
