@@ -11,19 +11,19 @@ const webpack = require('webpack');
 const env = require('./environment');
 
 const mode = process.env.NODE_ENV || env.DEVELOPMENT;
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-// const ProgressPlugin = require('webpack/lib/ProgressPlugin');
-
-const config = require(`../config/webpack.fe.config.${mode}`);
-const compiler = webpack(config);
-// compiler.apply(new ProgressPlugin((percentage, msg) => console.log((percentage * 100) + '%', msg)));
-
 if (mode === env.DEVELOPMENT) {
-    // only need in development
-    app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  // const ProgressPlugin = require('webpack/lib/ProgressPlugin');
+
+  const config = require(`../config/webpack.fe.config.${mode}`);
+  const compiler = webpack(config);
+  // compiler.apply(new ProgressPlugin((percentage, msg) => console.log((percentage * 100) + '%', msg)));
+
+      // only need in development
+  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
+  app.use(webpackHotMiddleware(compiler));
 }
-app.use(webpackHotMiddleware(compiler));
 
 // app.use(flash());
 

@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
+import 'event-source-polyfill';
 // import injectTapEventPlugin from 'react-tap-event-plugin';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import configureStore from './redux/configureStore';

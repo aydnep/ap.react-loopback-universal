@@ -61,15 +61,17 @@ module.exports =
 
 	var _reactRedux = __webpack_require__(162);
 
-	var _routes = __webpack_require__(163);
+	__webpack_require__(163);
+
+	var _routes = __webpack_require__(164);
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _configureStore = __webpack_require__(173);
+	var _configureStore = __webpack_require__(175);
 
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 
-	var _preRenderMiddleware = __webpack_require__(181);
+	var _preRenderMiddleware = __webpack_require__(183);
 
 	var _preRenderMiddleware2 = _interopRequireDefault(_preRenderMiddleware);
 
@@ -19773,6 +19775,12 @@ module.exports =
 
 /***/ },
 /* 163 */
+/***/ function(module, exports) {
+
+	module.exports = require("event-source-polyfill");
+
+/***/ },
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19787,19 +19795,19 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(161);
 
-	var _App = __webpack_require__(164);
+	var _App = __webpack_require__(165);
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _Main = __webpack_require__(167);
+	var _Main = __webpack_require__(168);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _Qwerty = __webpack_require__(171);
+	var _Qwerty = __webpack_require__(172);
 
 	var _Qwerty2 = _interopRequireDefault(_Qwerty);
 
-	var _SSE = __webpack_require__(172);
+	var _SSE = __webpack_require__(173);
 
 	var _SSE2 = _interopRequireDefault(_SSE);
 
@@ -19819,7 +19827,7 @@ module.exports =
 	};
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19832,7 +19840,7 @@ module.exports =
 
 	var _react2 = _interopRequireDefault(_react);
 
-	__webpack_require__(165);
+	__webpack_require__(166);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19853,10 +19861,10 @@ module.exports =
 	exports.default = App;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(166)();
+	exports = module.exports = __webpack_require__(167)();
 	// imports
 
 
@@ -19867,7 +19875,7 @@ module.exports =
 
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -19922,7 +19930,7 @@ module.exports =
 	};
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19933,7 +19941,7 @@ module.exports =
 
 	var _reactRedux = __webpack_require__(162);
 
-	var _main = __webpack_require__(168);
+	var _main = __webpack_require__(169);
 
 	var _main2 = _interopRequireDefault(_main);
 
@@ -19957,7 +19965,7 @@ module.exports =
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_main2.default);
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19972,11 +19980,11 @@ module.exports =
 
 	var _reactRouter = __webpack_require__(161);
 
-	var _logo = __webpack_require__(169);
+	var _logo = __webpack_require__(170);
 
 	var _logo2 = _interopRequireDefault(_logo);
 
-	__webpack_require__(170);
+	__webpack_require__(171);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20023,16 +20031,16 @@ module.exports =
 	exports.default = Main;
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "static/media/logo.5d5d9eef.svg";
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(166)();
+	exports = module.exports = __webpack_require__(167)();
 	// imports
 
 
@@ -20043,7 +20051,7 @@ module.exports =
 
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20097,7 +20105,7 @@ module.exports =
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Qwerty);
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20114,7 +20122,13 @@ module.exports =
 
 	var _reactRedux = __webpack_require__(162);
 
+	var _axios = __webpack_require__(174);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20126,9 +20140,22 @@ module.exports =
 	  _inherits(SSE, _React$Component);
 
 	  function SSE() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
 	    _classCallCheck(this, SSE);
 
-	    return _possibleConstructorReturn(this, (SSE.__proto__ || Object.getPrototypeOf(SSE)).apply(this, arguments));
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SSE.__proto__ || Object.getPrototypeOf(SSE)).call.apply(_ref, [this].concat(args))), _this), _this.handleChange = function (e) {
+	      _this.setState({ input: e.target.value });
+	    }, _this.handleSubmit = function (e) {
+	      e.preventDefault();
+	      _axios2.default.post('/api/sses', { sse: _this.state.input });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 
 	  _createClass(SSE, [{
@@ -20138,10 +20165,15 @@ module.exports =
 
 	      var sseUrl = '/api/sses/change-stream?_format=event-stream';
 	      var src = new EventSource(sseUrl);
+	      // src.onmessage = (msg) => {
+	      //   this.setState({ sse: msg.data });
+	      // };
 	      src.addEventListener('data', function (msg) {
 	        // const data = JSON.parse(msg.data);
 	        // console.log(data);
-	        _this2.setState({ sse: msg.data });
+	        var sse = _this2.state ? [].concat(_toConsumableArray(_this2.state.sse)) : [];
+	        sse.push(msg.data);
+	        _this2.setState({ sse: sse });
 	      });
 	    }
 	  }, {
@@ -20150,7 +20182,24 @@ module.exports =
 	      return _react2.default.createElement(
 	        'section',
 	        null,
-	        this.state && this.state.sse
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'SSE'
+	        ),
+	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: this.handleSubmit },
+	          _react2.default.createElement('input', { type: 'text', name: 'sse', value: this.state && this.state.input || '', onChange: this.handleChange }),
+	          _react2.default.createElement('input', { type: 'submit' })
+	        ),
+	        this.state && this.state.sse && this.state.sse.map(function (sse, index) {
+	          return _react2.default.createElement(
+	            'p',
+	            { key: index },
+	            sse
+	          );
+	        })
 	      );
 	    }
 	  }]);
@@ -20173,7 +20222,13 @@ module.exports =
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SSE);
 
 /***/ },
-/* 173 */
+/* 174 */
+/***/ function(module, exports) {
+
+	module.exports = require("axios");
+
+/***/ },
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20183,23 +20238,23 @@ module.exports =
 	});
 	exports.default = configureStore;
 
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(176);
 
-	var _reactRouterRedux = __webpack_require__(175);
+	var _reactRouterRedux = __webpack_require__(177);
 
-	var _reduxThunk = __webpack_require__(176);
+	var _reduxThunk = __webpack_require__(178);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reduxLogger = __webpack_require__(177);
+	var _reduxLogger = __webpack_require__(179);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _modules = __webpack_require__(178);
+	var _modules = __webpack_require__(180);
 
 	var _modules2 = _interopRequireDefault(_modules);
 
-	var _promiseMiddleware = __webpack_require__(180);
+	var _promiseMiddleware = __webpack_require__(182);
 
 	var _promiseMiddleware2 = _interopRequireDefault(_promiseMiddleware);
 
@@ -20243,31 +20298,31 @@ module.exports =
 	}
 
 /***/ },
-/* 174 */
+/* 176 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux");
 
 /***/ },
-/* 175 */
+/* 177 */
 /***/ function(module, exports) {
 
 	module.exports = require("react-router-redux");
 
 /***/ },
-/* 176 */
+/* 178 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-thunk");
 
 /***/ },
-/* 177 */
+/* 179 */
 /***/ function(module, exports) {
 
 	module.exports = require("redux-logger");
 
 /***/ },
-/* 178 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20276,11 +20331,11 @@ module.exports =
 	  value: true
 	});
 
-	var _redux = __webpack_require__(174);
+	var _redux = __webpack_require__(176);
 
-	var _reactRouterRedux = __webpack_require__(175);
+	var _reactRouterRedux = __webpack_require__(177);
 
-	var _app = __webpack_require__(179);
+	var _app = __webpack_require__(181);
 
 	var _app2 = _interopRequireDefault(_app);
 
@@ -20296,7 +20351,7 @@ module.exports =
 	exports.default = rootReducer;
 
 /***/ },
-/* 179 */
+/* 181 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20318,7 +20373,7 @@ module.exports =
 	};
 
 /***/ },
-/* 180 */
+/* 182 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20369,7 +20424,7 @@ module.exports =
 	/* eslint-enable */
 
 /***/ },
-/* 181 */
+/* 183 */
 /***/ function(module, exports) {
 
 	"use strict";

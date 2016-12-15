@@ -105,6 +105,7 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['es2015', 'react', 'stage-0'],
+          plugins: ['transform-object-rest-spread'],
 
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/

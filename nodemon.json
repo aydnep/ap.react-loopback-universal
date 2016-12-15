@@ -4,7 +4,14 @@
     ".git",
     "node_modules/**/node_modules",
     "build/",
-    "data/"
+    "data/",
+    "app/components/",
+    "app/containers/",
+    "app/css/",
+    "app/img/",
+    "app/redux/",
+    "app/test/",
+    "app/client.jsx"
   ],
   "exec": "npm run build:dev && node .",
   "ext": "js json jsx"

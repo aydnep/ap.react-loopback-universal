@@ -2,6 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createMemoryHistory, match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
+import 'event-source-polyfill';
 
 import buildRouting from './routes';
 import configureStore from './redux/configureStore';

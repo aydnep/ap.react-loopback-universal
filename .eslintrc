@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "extends": "airbnb",
   "env": {
     "browser": true,
@@ -12,10 +13,31 @@
       "forOf": true,
       "jsx": true,
       "es6": true,
-      "experimentalObjectRestSpread" : true
-    },
+      "arrowFunctions": true,
+      "binaryLiterals": true,
+      "blockBindings": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "generators": true,
+      "modules": true,
+      "objectLiteralComputedProperties": true,
+      "objectLiteralDuplicateProperties": true,
+      "objectLiteralShorthandMethods": true,
+      "objectLiteralShorthandProperties": true,
+      "octalLiterals": true,
+      "regexUFlag": true,
+      "regexYFlag": true,
+      "spread": true,
+      "superInFunctions": true,
+      "templateStrings": true,
+      "unicodeCodePointEscapes": true,
+      "globalReturn": true,
+      "experimentalObjectRestSpread": true
+    }
   },
   "rules": {
+    "strict": 0,
     "comma-dangle": 0,
     "indent": 0,
     "react/prop-types": 0,
